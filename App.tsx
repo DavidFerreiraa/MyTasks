@@ -1,13 +1,24 @@
+import { SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Greetings } from './src/screens/Greetings';
+
+import {
+  useFonts,
+  OleoScript_400Regular,
+  OleoScript_700Bold,
+} from '@expo-google-fonts/oleo-script';
+import { Loading } from './src/components/Loading';
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    OleoScript_400Regular,
+    OleoScript_700Bold
+  })
+
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text></Text>
-      <StatusBar style="auto"/>
-    </View>
+    <SafeAreaView>
+      {fontsLoaded? <Greetings/> : <Loading/> }
+    </SafeAreaView>
   );
 }
-
-
