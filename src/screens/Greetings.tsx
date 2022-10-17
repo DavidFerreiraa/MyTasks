@@ -20,7 +20,7 @@ export function Greetings() {
                 Description="It's your first day here? Don't worry the app is super easy to use."
             />
             <Btn
-                addStyle="bg-blue-500 px-16 py-4 rounded mt-28"
+                className="bg-blue-500 px-16 py-4 rounded mt-28"
                 btntext="Get started"
                 onPress={() => {
                     navigation.navigate('home')

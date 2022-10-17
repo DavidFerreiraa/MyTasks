@@ -1,11 +1,10 @@
 import { Text } from 'react-native';
-import { Header } from '../components/Headers/Header';
+import { HeaderHome } from "../components/Headers/HeaderHome";
 
 export function Home() {
   return (
     <>
-        <Header title='MyTasks'/>
-        <Text>Home</Text>
+        <HeaderHome title='MyTasks'/>
     </>
   );
 }
