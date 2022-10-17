@@ -1,4 +1,5 @@
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
+import Routes from './src/routes';
 
 import {
   useFonts,
@@ -7,7 +8,6 @@ import {
 } from '@expo-google-fonts/oleo-script';
 
 import Loading from './src/components/Loading';
-import Routes from './src/routes';
 
 export default function App() {
 
@@ -17,8 +17,8 @@ export default function App() {
   })
 
   return (
-    <View>
-      {fontsLoaded? <Routes/> : <Loading/>}
-    </View>
+    <>
+      { fontsLoaded? <Routes/>: <Loading/> }
+    </>
   );
 }

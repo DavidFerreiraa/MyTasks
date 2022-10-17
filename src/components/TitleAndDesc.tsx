@@ -7,9 +7,9 @@ interface TitleAndDescProps {
 
 export function TitleAndDesc({Title, Description}: TitleAndDescProps) {
   return (
-    <View className='justify-center items-center'>
+    <View className='justify-center items-center px-4 flex-col gap-4'>
         <Text className='text-2xl font-bold'>{Title}</Text>
-        <Text>{Description}</Text>
+        <Text className='font-regular text-base'>{Description}</Text>
     </View>
   );
 }
