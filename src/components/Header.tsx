@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity} from "react-native";
 import { THEME } from "../THEME";
 
@@ -7,6 +8,8 @@ interface HeaderProps {
 }
 
 export function Header(props: HeaderProps) {
+
+  const navigation = useNavigation();
 
   return (
     <View className="w-full h-16 flex flex-row items-center justify-between bg-blue-700 px-4">

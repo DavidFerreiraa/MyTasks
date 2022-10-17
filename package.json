@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@expo-google-fonts/oleo-script": "^0.2.2",
+    "@react-navigation/native": "^6.0.13",
+    "@react-navigation/native-stack": "^6.9.1",
     "expo": "~46.0.16",
     "expo-app-loading": "^2.1.0",
     "expo-font": "^10.2.1",

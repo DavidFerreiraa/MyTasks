@@ -1,13 +1,13 @@
-import { SafeAreaView } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { Greetings } from './src/screens/Greetings';
+import { View } from 'react-native';
 
 import {
   useFonts,
   OleoScript_400Regular,
   OleoScript_700Bold,
 } from '@expo-google-fonts/oleo-script';
-import { Loading } from './src/components/Loading';
+
+import Loading from './src/components/Loading';
+import Routes from './src/routes';
 
 export default function App() {
 
@@ -17,8 +17,8 @@ export default function App() {
   })
 
   return (
-    <SafeAreaView>
-      {fontsLoaded? <Greetings/> : <Loading/> }
-    </SafeAreaView>
+    <View>
+      {fontsLoaded? <Routes/> : <Loading/>}
+    </View>
   );
 }
