@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, Text} from "react-native";
-import { THEME } from "../THEME";
-import Btn from "./Btn";
+import { THEME } from "../../THEME";
+import Btn from "../Btn";
 
 interface HeaderProps {
   title: string

@@ -1,9 +1,11 @@
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Header } from '../components/Headers/Header';
 
 export function Home() {
   return (
-    <View className='flex-1 items-center justify-center'>
+    <>
+        <Header title='MyTasks'/>
         <Text>Home</Text>
-    </View>
+    </>
   );
 }

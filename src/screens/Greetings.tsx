@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
-import { Image, SafeAreaView, StatusBar, View } from "react-native";
+import { Image, SafeAreaView, StatusBar } from "react-native";
 import Btn from "../components/Btn";
-import { Header } from "../components/Header";
+import { Header } from "../components/Headers/Header";
 import { TitleAndDesc } from "../components/TitleAndDesc";
 
 export function Greetings() {
