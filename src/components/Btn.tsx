@@ -1,15 +1,15 @@
-import { Text, TouchableOpacity} from "react-native";
+import { Text, TouchableOpacity, TouchableOpacityProps} from "react-native";
 import { THEME } from "../THEME";
 
-interface BtnProps {
+interface BtnProps extends TouchableOpacityProps {
     btntext: string
-    backgroundColor: string
+    addStyle: string
 }
 
-export default function Btn(props: BtnProps) {
+export default function Btn({btntext, addStyle, ...rest }: BtnProps) {
     return(
-    <TouchableOpacity className={`px-4 py-1 rounded ${props.backgroundColor}`}>
-        <Text style={{fontFamily: THEME.FONT_FAMILY.REGULAR}}>{props.btntext}</Text>
+    <TouchableOpacity className={`${addStyle}`} {...rest}>
+        <Text style={{fontFamily: THEME.FONT_FAMILY.REGULAR}}>{btntext}</Text>
     </TouchableOpacity>
     )
 }

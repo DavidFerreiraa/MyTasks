@@ -14,7 +14,9 @@ export function Header(props: HeaderProps) {
   return (
     <View className="w-full h-16 flex flex-row items-center justify-between bg-blue-700 px-4">
       <Text className="text-white text-2xl" style={{fontFamily: THEME.FONT_FAMILY.BOLD}}>{props.title}</Text>
-      <Btn backgroundColor="bg-white" btntext="Get started"/>
+      <Btn addStyle="bg-white px-4 py-1 rounded" btntext="Get started" onPress={() => {
+        navigation.navigate('home'); 
+      }}/>
     </View>
   );
 }
