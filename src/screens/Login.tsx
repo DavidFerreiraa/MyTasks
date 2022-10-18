@@ -20,7 +20,7 @@ export function Login() {
         <>
             <HeaderLogin className="mt-8"/>
             <View className="justify-center my-64">
-                <Field title="email" />
+                <Field title="email"/>
                 <Field title="password"/>
             </View>
         </>
