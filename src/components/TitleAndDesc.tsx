@@ -1,9 +1,5 @@
 import { View, Text } from 'react-native';
-
-interface TitleAndDescProps {
-    Title: string
-    Description: string
-}
+import { TitleAndDescProps } from '../interfaces/interfaces';
 
 export function TitleAndDesc({Title, Description}: TitleAndDescProps) {
   return (

@@ -23,7 +23,7 @@ export function Greetings() {
                 className="bg-blue-500 px-16 py-4 rounded mt-28"
                 btntext="Get started"
                 onPress={() => {
-                    navigation.navigate('home')
+                    navigation.navigate('login')
                 }}
             />
 

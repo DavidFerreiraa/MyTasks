@@ -5,17 +5,17 @@ import Btn from "../Btn";
 
 import { HeaderProps } from "../../interfaces/interfaces";
 
-export function HeaderHome(props: HeaderProps) {
+export function HeaderHome({title, ...rest}: HeaderProps) {
 
     const navigation = useNavigation();
 
     return (
-        <View className="w-full h-16 flex flex-row items-center justify-between bg-blue-700 px-4">
+        <View className="w-full h-16 flex flex-row items-center justify-between bg-blue-700 px-4" {...rest}>
             <Text
                 className="text-white text-2xl"
                 style={{ fontFamily: THEME.FONT_FAMILY.BOLD }}
             >
-                {props.title}
+                {title}
             </Text>
             <Btn
                 plusIcon
