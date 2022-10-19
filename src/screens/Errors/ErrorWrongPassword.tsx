@@ -16,7 +16,7 @@ export function ErrorWrongPassword() {
             <TitleAndDesc
                 Title="Ops! An error ocurred"
                 Description="Wrong Password, try again"
-                className="text-white"
+                textColor="text-white"
             />
             <Btn
                 btntext="Try again"

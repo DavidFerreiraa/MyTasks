@@ -1,11 +1,11 @@
 import HeaderLogin from "../components/Headers/HeaderLogin";
 import Field from "../components/Field";
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView, View} from "react-native";
 import { useState } from "react";
-import axios from "axios";
 import Btn from "../components/Btn";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/Loading";
+import { api } from "../services/api";
 
 export function Signup() {
     const [textFromEmail, setTextFromEmail] = useState<string>("");
@@ -32,8 +32,8 @@ export function Signup() {
                     customfont={false}
                     onPress={() => {
                         if (textFromPassword === otherTextFromPassword) {
-                            axios
-                                .post("http://192.168.24.43:3030/users", {
+                            api
+                                .post(`/users`, {
                                     name: username,
                                     email: textFromEmail,
                                     password: textFromPassword,

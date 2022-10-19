@@ -17,7 +17,7 @@ export function ErrorSignUp2() {
             <TitleAndDesc
                 Title="Ops! An error ocurred"
                 Description="This email alredy exists, try to log in?"
-                className="text-white"
+                textColor="text-white"
             />
             <Btn
                 btntext="Go to log in screen"

@@ -2,13 +2,9 @@ import HeaderLogin from "../components/Headers/HeaderLogin";
 import Field from "../components/Field";
 import { SafeAreaView, View } from "react-native";
 import { useState } from "react";
-import axios from 'axios';
 import Btn from "../components/Btn";
 import { useNavigation } from "@react-navigation/native";
-
-type RootStackParamList = {
-    home: { tokenID: string};
-};
+import { api } from "../services/api";
 
 export function Login() {
 
@@ -28,8 +24,8 @@ export function Login() {
                     className="bg-blue-700 mt-12 rounded p-4 items-center justify-center text-white font-extrabold w-full "
                     customfont={false}
                     onPress={() => {
-                        axios
-                            .post("http://192.168.24.43:3030/auth", {
+                        api
+                            .post(`/auth`, {
                                 email: textFromEmail,
                                 password: textFromPassword,
                             })
