@@ -8,7 +8,7 @@ export function SucessOnSignUp() {
     const navigator = useNavigation();
 
     return (
-        <SafeAreaView className="bg-blue-700 text-6xl text-white h-full items-center justify-center">
+        <SafeAreaView className="bg-blue-700 text-6xl text-white h-full items-center justify-center px-12">
             <Image
                 source={require("../../assets/Hot_beverage.png")}
                 className="w-60 h-60"
