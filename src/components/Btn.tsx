@@ -1,16 +1,12 @@
-import { Text, TouchableOpacity, TouchableOpacityProps} from "react-native";
+import { Text, TouchableOpacity} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { THEME } from "../THEME";
+import { BtnProps } from "../interfaces/interfaces";
 
-interface BtnProps extends TouchableOpacityProps {
-    btntext?: string
-    plusIcon?: boolean
-}
-
-export default function Btn({btntext, plusIcon, ...rest }: BtnProps) {
+export default function Btn({btntext, plusIcon, customfont, ...rest }: BtnProps) {
     return (
         <TouchableOpacity {...rest}>
-            {btntext && (<Text style={{ fontFamily: THEME.FONT_FAMILY.REGULAR }}>
+            {btntext && (<Text style={customfont? { fontFamily: THEME.FONT_FAMILY.REGULAR }: null}>
                 {btntext}
             </Text>)}
             {plusIcon && (

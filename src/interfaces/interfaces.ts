@@ -1,10 +1,11 @@
-import { ViewProps } from "react-native"
+import { TextInputProps, TouchableOpacityProps, ViewProps } from "react-native"
 
 export interface HeaderProps extends ViewProps {
   title: string
 }
-export interface FieldProps extends HeaderProps {
-
+export interface FieldProps {
+  title: string
+  getValue: any
 }
 
 export interface TitleAndDescProps {
@@ -21,3 +22,10 @@ export interface UserProps {
     tasks: number
   }
 }
+
+export interface BtnProps extends TouchableOpacityProps {
+    btntext?: string
+    plusIcon?: boolean
+    customfont: boolean
+}
+

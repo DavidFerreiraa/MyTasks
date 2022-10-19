@@ -22,6 +22,7 @@ export function HeaderHome({title, ...rest}: HeaderProps) {
                 onPress={() => {
                     navigation.navigate("home");
                 }}
+                customfont={true}
             />
         </View>
     );

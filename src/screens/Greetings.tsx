@@ -25,6 +25,7 @@ export function Greetings() {
                 onPress={() => {
                     navigation.navigate('login')
                 }}
+                customfont={true}
             />
 
             <StatusBar barStyle="light-content" backgroundColor="#1d4ed8" />
