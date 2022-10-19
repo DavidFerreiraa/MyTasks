@@ -28,7 +28,9 @@ export interface UserProps {
 export interface BtnProps extends TouchableOpacityProps {
     btntext?: string
     plusIcon?: boolean
+    loadingIcon?: boolean
     customfont?: boolean
+    textColor?: string
 }
 
 export interface TasksProps {

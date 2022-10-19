@@ -5,7 +5,7 @@ import { useState } from "react";
 import Btn from "../components/Btn";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/Loading";
-import { api } from "../services/api";
+import api from "../services/api";
 
 export function Signup() {
     const [textFromEmail, setTextFromEmail] = useState<string>("");
@@ -38,10 +38,10 @@ export function Signup() {
                                     email: textFromEmail,
                                     password: textFromPassword,
                                 })
-                                .then((response) => {
+                                .then(() => {
                                     navigator.navigate("sucessonsignup");
                                 })
-                                .catch((err) => {
+                                .catch((err: Error) => {
                                     navigator.navigate("errorscreenduplicate");
                                 });
                         }

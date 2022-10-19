@@ -4,12 +4,13 @@ import { SafeAreaView, View } from "react-native";
 import { useState } from "react";
 import Btn from "../components/Btn";
 import { useNavigation } from "@react-navigation/native";
-import { api } from "../services/api";
+import api from "../services/api";
 
 export function Login() {
 
     const [textFromEmail, setTextFromEmail] = useState<string>("")
     const [textFromPassword, setTextFromPassword] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(false);
 
     const navigator = useNavigation()
 
@@ -21,28 +22,33 @@ export function Login() {
                 <Field title="password" getValue={setTextFromPassword} />
                 <Btn
                     btntext="Log in"
-                    className="bg-blue-700 mt-12 rounded p-4 items-center justify-center text-white font-extrabold w-full "
+                    className="bg-blue-700 mt-12 rounded p-4 items-center justify-center flex-row font-extrabold w-full "
                     customfont={false}
+                    textColor="text-white"
                     onPress={() => {
+                        setLoading(true)
                         api
                             .post(`/auth`, {
                                 email: textFromEmail,
                                 password: textFromPassword,
                             })
-                            .then((response) => {
-                                navigator.navigate("home", {
-                                    token: response.data.token,
-                                });
+                            .then((response: any) => {
+                                setLoading(false)
+                                api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+                                navigator.navigate("home");
                             })
-                            .catch((err) => {
+                            .catch((err: Error) => {
+                                setLoading(false)
                                 navigator.navigate("errorwrongpassword");
                             });
                     }}
+                    loadingIcon={loading}
                 />
                 <Btn
                     btntext="Sign up"
                     className="bg-blue-700 mt-12 rounded p-4 items-center justify-center text-white font-extrabold w-full "
                     customfont={false}
+                    textColor="text-white"
                     onPress={() => {
                         navigator.navigate('signup')
                     }}
