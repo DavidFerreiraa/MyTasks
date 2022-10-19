@@ -7,6 +7,7 @@ export declare global {
             errorscreen: undefined;
             errorscreenduplicate: undefined;
             sucessonsignup: undefined;
+            errorwrongpassword: undefined;
         }
     }
 }

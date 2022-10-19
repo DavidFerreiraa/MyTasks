@@ -6,6 +6,7 @@ import { Signup } from "../screens/Signup";
 import { ErrorSignUp } from "../screens/Errors/ErrorSignUp";
 import { ErrorSignUp2 } from "../screens/Errors/ErrorSignUp2";
 import { SucessOnSignUp } from "../screens/Sucess/SucessOnSignUp";
+import { ErrorWrongPassword } from "../screens/Errors/ErrorWrongPassword";
 
 
 
@@ -18,6 +19,7 @@ export default function AppRoutes() {
             <Screen name="login" component={Login} />
             <Screen name="errorscreen" component={ErrorSignUp} />
             <Screen name="errorscreenduplicate" component={ErrorSignUp2} />
+            <Screen name="errorwrongpassword" component={ErrorWrongPassword} />
             <Screen name="signup" component={Signup} />
             <Screen name="sucessonsignup" component={SucessOnSignUp} />
             <Screen name="home" component={Home} />

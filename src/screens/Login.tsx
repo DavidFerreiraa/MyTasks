@@ -29,10 +29,11 @@ export function Login() {
                                 email: textFromEmail,
                                 password: textFromPassword,
                             })
-                            .then(() => navigator.navigate("home"))
+                            .then((response) => {
+                                navigator.navigate("home")
+                            })
                             .catch((err) => {
-                                console.log("Ops! An error ocurred");
-                                console.log(err);
+                                navigator.navigate("errorwrongpassword")
                             });
                     }}
                 />
