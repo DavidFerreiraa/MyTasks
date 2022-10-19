@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import Btn from "../components/Btn";
 import { useNavigation } from "@react-navigation/native";
+import Loading from "../components/Loading";
 
 export function Signup() {
     const [textFromEmail, setTextFromEmail] = useState<string>("");
@@ -31,18 +32,25 @@ export function Signup() {
                     customfont={false}
                     onPress={() => {
                         if (textFromPassword === otherTextFromPassword) {
-                            axios.post("http://192.168.1.111:3030/users", {
-                                name: username,
-                                email: textFromEmail,
-                                password: textFromPassword
-                            }).then((response) => {
-                                navigator.navigate("sucessonsignup")
-                            })
-                            .catch((err) => {
-                                navigator.navigate("errorscreenduplicate")
-                            });
+                            axios
+                                .post("http://192.168.24.43:3030/users", {
+                                    name: username,
+                                    email: textFromEmail,
+                                    password: textFromPassword,
+                                })
+                                .then((response) => {
+                                    navigator.navigate("sucessonsignup");
+                                })
+                                .catch((err) => {
+                                    navigator.navigate("errorscreenduplicate");
+                                });
                         }
-                        navigator.navigate("errorscreen");
+                        
+                        else if(textFromPassword !== otherTextFromPassword) {
+                            navigator.navigate("errorscreen");
+                        }
+
+                        return <Loading/>
                     }}
                 />
             </View>

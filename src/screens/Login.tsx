@@ -29,15 +29,17 @@ export function Login() {
                     customfont={false}
                     onPress={() => {
                         axios
-                            .post("http://192.168.1.111:3030/auth", {
+                            .post("http://192.168.24.43:3030/auth", {
                                 email: textFromEmail,
                                 password: textFromPassword,
                             })
                             .then((response) => {
-                                navigator.navigate("home", {token: response.data.token});
+                                navigator.navigate("home", {
+                                    token: response.data.token,
+                                });
                             })
                             .catch((err) => {
-                                navigator.navigate("errorwrongpassword")
+                                navigator.navigate("errorwrongpassword");
                             });
                     }}
                 />
