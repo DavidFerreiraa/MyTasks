@@ -30,8 +30,6 @@ export function Signup() {
                     className="bg-blue-700 mt-12 rounded p-4 items-center justify-center text-white font-extrabold w-full "
                     customfont={false}
                     onPress={() => {
-                        console.log(textFromPassword)
-                        console.log(otherTextFromPassword)
                         if (textFromPassword === otherTextFromPassword) {
                             axios.post("http://192.168.1.111:3030/users", {
                                 name: username,
