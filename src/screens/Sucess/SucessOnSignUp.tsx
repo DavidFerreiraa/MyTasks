@@ -16,6 +16,7 @@ export function SucessOnSignUp() {
             <TitleAndDesc
                 Title="Sucess!!!"
                 Description="Now you can use MyTasks! I hope you enjoy it"
+                className="text-white"
             />
             <Btn
                 btntext="Go to log in screen"

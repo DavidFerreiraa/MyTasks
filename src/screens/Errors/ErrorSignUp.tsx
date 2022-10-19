@@ -11,6 +11,7 @@ export function ErrorSignUp(){
             <TitleAndDesc
                 Title="Ops! An error ocurred"
                 Description="Check if your first password is equals to the second"
+                className="text-white"
             />
         </SafeAreaView>
     );

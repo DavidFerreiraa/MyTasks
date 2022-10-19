@@ -8,7 +8,7 @@ export interface FieldProps {
   getValue: any
 }
 
-export interface TitleAndDescProps {
+export interface TitleAndDescProps extends ViewProps {
     Title: string
     Description: string
 }

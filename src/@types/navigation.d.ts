@@ -8,6 +8,7 @@ export declare global {
             errorscreenduplicate: undefined;
             sucessonsignup: undefined;
             errorwrongpassword: undefined;
+            addtask: undefined;
         }
     }
 }

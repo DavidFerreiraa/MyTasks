@@ -7,7 +7,7 @@ import { HeaderProps } from "../../interfaces/interfaces";
 
 export function HeaderHome({title, ...rest}: HeaderProps) {
 
-    const navigation = useNavigation();
+    const navigator = useNavigation();
 
     return (
         <View className="w-full h-16 flex flex-row items-center justify-between bg-blue-700 px-4" {...rest}>
@@ -20,7 +20,7 @@ export function HeaderHome({title, ...rest}: HeaderProps) {
             <Btn
                 plusIcon
                 onPress={() => {
-                    
+                    navigator.navigate('addtask')
                 }}
                 customfont={true}
             />
