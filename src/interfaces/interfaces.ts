@@ -28,4 +28,3 @@ export interface BtnProps extends TouchableOpacityProps {
     plusIcon?: boolean
     customfont: boolean
 }
-

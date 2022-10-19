@@ -1,10 +1,14 @@
 import HeaderLogin from "../components/Headers/HeaderLogin";
 import Field from "../components/Field";
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { useState } from "react";
 import axios from 'axios';
 import Btn from "../components/Btn";
 import { useNavigation } from "@react-navigation/native";
+
+type RootStackParamList = {
+    home: { tokenID: string};
+};
 
 export function Login() {
 
@@ -30,7 +34,7 @@ export function Login() {
                                 password: textFromPassword,
                             })
                             .then((response) => {
-                                navigator.navigate("home")
+                                navigator.navigate("home", {token: response.data.token});
                             })
                             .catch((err) => {
                                 navigator.navigate("errorwrongpassword")

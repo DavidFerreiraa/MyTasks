@@ -20,7 +20,7 @@ export function HeaderHome({title, ...rest}: HeaderProps) {
             <Btn
                 plusIcon
                 onPress={() => {
-                    navigation.navigate("home");
+                    
                 }}
                 customfont={true}
             />

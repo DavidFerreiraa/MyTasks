@@ -22,7 +22,7 @@ export default function AppRoutes() {
             <Screen name="errorwrongpassword" component={ErrorWrongPassword} />
             <Screen name="signup" component={Signup} />
             <Screen name="sucessonsignup" component={SucessOnSignUp} />
-            <Screen name="home" component={Home} />
+            <Screen name="home" component={Home}/>
         </Navigator>
     );
 }
