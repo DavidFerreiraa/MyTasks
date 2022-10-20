@@ -11,7 +11,6 @@ export function SucessAddTask() {
     navigator.addListener("beforeRemove", (e) => {
         e.preventDefault()
     })
-
     return (
         <SafeAreaView className="bg-blue-700 text-6xl text-white h-full items-center justify-center px-12">
             <Image
@@ -28,11 +27,15 @@ export function SucessAddTask() {
                 className="bg-white mt-12 rounded p-4 items-center justify-center text-white font-extrabold w-full "
                 customfont={false}
                 onPress={() => {
+                    navigator.addListener("beforeRemove", (e) => {
+                        navigator.dispatch(e.data.action)
+                    });
                     navigator.navigate("home", {
                         refresh: 1
                     });
                 }}
             />
         </SafeAreaView>
+
     );
 }

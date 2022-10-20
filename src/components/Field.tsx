@@ -9,8 +9,8 @@ export default function Field({title, getValue, textColor="text-black", ...rest}
     return(
         <View className="w-full">
             <Text className={`text-lg ${textColor} font-extrabold`} >{title}</Text>
-            <TextInput className="p-2 border border-blue-700 rounded" {...rest} onChangeText={async (value) => {
-                await setText(value);
+            <TextInput className="p-2 border border-blue-700 rounded" {...rest} onChangeText={(value) => {
+                setText(value);
                 text = value
                 getValue(text)
             }} value={text}/>
