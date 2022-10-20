@@ -13,21 +13,12 @@ export function Home(props: any) {
 
   var [tasks, setTasks] = useState<TasksProps[]>([])
   var [loaded, setLoaded] = useState<boolean>(false)
+  const [filtro, setFiltro] = useState<string>("")
+
   const refreshValue: number = props.route.params.refresh;
 
-  // useEffect(()=>{
-  //   api.get(`/task`)
-  //   .then((response) => {
-  //     console.log(response.data)
-  //     setTasks(response.data)
-  //     setLoaded(!loaded)
-  //     console.log(tasks)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // },[])
-
+  console.log(filtro)
+  
   useEffect(() => {
       api.get(`/task`)
           .then((response) => {
@@ -43,8 +34,8 @@ export function Home(props: any) {
 
   return (
       <SafeAreaView className="h-full flex-col">
-          <HeaderHome title="MyTasks" />
-          <Finder />
+          <HeaderHome title="MyTasks"/>
+          <Finder getValue={setFiltro}/>
           <View>
               {loaded ? (
                   tasks.length === 0 ? (
