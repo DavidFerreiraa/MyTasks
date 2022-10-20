@@ -30,9 +30,7 @@ export function SucessAddTask() {
                     navigator.addListener("beforeRemove", (e) => {
                         navigator.dispatch(e.data.action)
                     });
-                    navigator.navigate("home", {
-                        refresh: 1
-                    });
+                    navigator.navigate("home");
                 }}
             />
         </SafeAreaView>

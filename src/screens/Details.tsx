@@ -34,11 +34,7 @@ export function Details(props: any) {
                     <TouchableOpacity onPress={() => {
 
                     }}>
-                        <AntDesign
-                            name="delete"
-                            size={60}
-                            color="white"
-                        />
+                        <AntDesign name="checkcircle" size={60} color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {
                         

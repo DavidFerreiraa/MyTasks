@@ -13,6 +13,7 @@ export default function Task(props: TaskData) {
             data: {...data}
         })
     }
+
     return (
         <View className="flex-row justify-between my-1">
             <TouchableOpacity onPress={() => {
@@ -22,7 +23,7 @@ export default function Task(props: TaskData) {
             </TouchableOpacity>
             <View className="flex-row gap-4">
                 <TouchableOpacity onPress={() => {
-                    
+                     props.handleDelete(props.data.id)
                 }}>
                     <MaterialIcons
                         name="highlight-remove"

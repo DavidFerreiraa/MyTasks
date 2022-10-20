@@ -19,6 +19,16 @@ export function AddTask() {
 
     var [date, setDate] = useState<Date>(new Date())
 
+    const PostTaskOnAPI = async (title: string, description: string, hourStart: string) => {
+        await api.post("/task", {
+            title: title,
+            description: description,
+            hourStart: hourStart,
+        }).then((response) => {
+            navigator.navigate("sucessaddtask");
+        });
+    }
+
     return (
         <SafeAreaView className="w-full h-full bg-blue-700">
             <ScrollView className="w-full h-full p-8">
@@ -78,14 +88,7 @@ export function AddTask() {
                         btntext="Save task"
                         className="w-full bg-blue-300 p-4 rounded mt-8 items-center"
                         onPress={()=>{
-                            console.log(time)
-                            api.post("/task", {
-                                title: title,
-                                description: desc,
-                                hourStart: time
-                            }).then((response) => {
-                                navigator.navigate("sucessaddtask")
-                            })
+                            PostTaskOnAPI(title, desc, time)
                         }}
                     />
                 ) : null}

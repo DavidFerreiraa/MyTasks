@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, Text, View } from "react-native";
 import Finder from "../components/Finder";
@@ -8,33 +8,47 @@ import Task from "../components/Task";
 import { TasksProps } from "../interfaces/interfaces";
 import api from "../services/api";
 
-export function Home(props: any) {
+export function Home() {
+
     const navigator = useNavigation();
 
+    const isFocused = useIsFocused()
     var [tasks, setTasks] = useState<TasksProps[]>([]);
     const [filtered, setFiltered] = useState<TasksProps[]>([])
     var [loaded, setLoaded] = useState<boolean>(false);
     const [filter, setFilter] = useState<string>("");
 
-    const refreshValue: number = props.route.params.refresh;
-
-    console.log(filter);
-
-    useEffect(() => {
-        api.get(`/task`)
+    const getTasksFromAPI = async () => {
+        await api.get(`/task`)
             .then((response) => {
                 setTasks(response.data);
                 tasks = response.data;
                 setLoaded(true);
                 loaded = true;
+                return;
             })
             .catch((error) => {
                 console.log(error);
+                return;
             });
-    }, [refreshValue]);
+    }
+
+    const deleteTask = async (id: string) => {
+        await api.delete(`/task/${id}`)
+        .then((response) => 
+            response && getTasksFromAPI()
+        )
+        .catch((err) => {
+            getTasksFromAPI()
+        });
+    }
 
     useEffect(() => {
-    if (filter !== "") {
+        getTasksFromAPI()
+    }, [isFocused]);
+
+    useEffect(() => {
+    if (filter != "") {
       let newFiltered: TasksProps[] = [];
       tasks.map((task) => {
         if (task.title.toLowerCase().startsWith(filter.toLowerCase())){
@@ -62,7 +76,10 @@ export function Home(props: any) {
                             <FlatList
                                 data={tasks}
                                 renderItem={({ item }) => (
-                                    <Task data={item} />
+                                    <Task
+                                        data={item}
+                                        handleDelete={deleteTask}
+                                    />
                                 )}
                                 className="w-full"
                             />
@@ -73,7 +90,10 @@ export function Home(props: any) {
                 ) : (
                     <FlatList
                         data={filtered}
-                        renderItem={({ item }) => <Text>{item.title}</Text>}
+                        renderItem={({ item }) => (
+                            <Task data={item} handleDelete={deleteTask(item.id)} />
+                        )}
+                        className="w-full"
                     />
                 )}
             </View>

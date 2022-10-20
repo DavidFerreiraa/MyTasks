@@ -15,7 +15,7 @@ export function ErrorWrongPassword() {
             />
             <TitleAndDesc
                 Title="Ops! An error ocurred"
-                Description="Wrong Password, try again"
+                Description="Wrong Password, try again. If you'r sure that the password is this, verify your API"
                 textColor="text-white"
             />
             <Btn

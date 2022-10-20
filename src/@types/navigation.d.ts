@@ -3,9 +3,7 @@ import { TasksProps } from "../interfaces/interfaces";
 export declare global {
     namespace ReactNavigation {
         interface RootParamList {
-            home: undefined | {
-                refresh: number
-            };
+            home: undefined;
             login: undefined;
             signup: undefined;
             errorscreen: undefined;
