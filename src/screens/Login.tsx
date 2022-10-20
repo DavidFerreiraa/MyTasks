@@ -35,7 +35,9 @@ export function Login() {
                             .then((response: any) => {
                                 setLoading(false)
                                 api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-                                navigator.navigate("home");
+                                navigator.navigate("home", {
+                                    refresh: 0
+                                });
                             })
                             .catch((err: Error) => {
                                 setLoading(false)

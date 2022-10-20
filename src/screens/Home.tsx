@@ -11,21 +11,35 @@ export function Home(props: any) {
 
   const navigator = useNavigation();
 
-  const [tasks, setTasks] = useState<TasksProps[]>([])
-  const [loaded, setLoaded] = useState<boolean>(false)
+  var [tasks, setTasks] = useState<TasksProps[]>([])
+  var [loaded, setLoaded] = useState<boolean>(false)
+  const refreshValue: number = props.route.params.refresh;
 
-  useEffect(()=>{
-    api.get(`/task`)
-    .then((response) => {
-      console.log(response.data)
-      setTasks(response.data)
-      setLoaded(!loaded)
-      console.log(tasks)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  },[])
+  // useEffect(()=>{
+  //   api.get(`/task`)
+  //   .then((response) => {
+  //     console.log(response.data)
+  //     setTasks(response.data)
+  //     setLoaded(!loaded)
+  //     console.log(tasks)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // },[])
+
+  useEffect(() => {
+      api.get(`/task`)
+          .then((response) => {
+              setTasks(response.data);
+              tasks = response.data
+              setLoaded(true);
+              loaded = true
+          })
+          .catch((error) => {
+              console.log(error);
+          });
+  }, [refreshValue]);
 
   return (
       <SafeAreaView className="h-full flex-col">
@@ -36,16 +50,16 @@ export function Home(props: any) {
                   tasks.length === 0 ? (
                       <Text>You don't have any task</Text>
                   ) : (
-                      <Loading />
-                  )
-              ) : (
-                  <FlatList
+                    <FlatList
                     data={tasks}
-                    renderItem={({item}) => {
-                      return(<Text>{item.title}</Text>)
-                    }}
-                  />
-              )}
+                    renderItem={({item}) => (
+                      <Text>{item.title}</Text>
+                      )}
+                      />
+                      )
+                      ) : (
+                        <Loading />
+                        )}
           </View>
       </SafeAreaView>
   );

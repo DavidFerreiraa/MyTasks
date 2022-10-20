@@ -5,6 +5,7 @@ import Field from "../components/Field";
 import { TitleAndDesc } from "../components/TitleAndDesc";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Btn from "../components/Btn";
+import api from "../services/api";
 
 export function AddTask() {
 
@@ -14,7 +15,8 @@ export function AddTask() {
     const [sendBtn, showSendBtn] = useState<boolean>(false);
     const [title, setTitle] = useState<string>("")
     const [desc, setDesc] = useState<string>("")
-    var fTime: string = ""
+    const [time, setTime] = useState<string>("");
+
     var [date, setDate] = useState<Date>(new Date())
 
     return (
@@ -57,7 +59,7 @@ export function AddTask() {
                             if (dateChanged) {
                                 await setDate(dateChanged);
                                 let tempDate = dateChanged;
-                                fTime = `${String(tempDate.getHours()).padStart(
+                                let fTime = `${String(tempDate.getHours()).padStart(
                                     2,
                                     "0"
                                 )}:${String(tempDate.getMinutes()).padStart(
@@ -66,8 +68,8 @@ export function AddTask() {
                                 )}`;
                                 showTimePicker(!timePicker);
                                 showSendBtn(!sendBtn);
+                                setTime(fTime)
                             }
-                            console.log(fTime);
                         }}
                     />
                 )}
@@ -75,6 +77,16 @@ export function AddTask() {
                     <Btn
                         btntext="Save task"
                         className="w-full bg-blue-300 p-4 rounded mt-8 items-center"
+                        onPress={()=>{
+                            console.log(time)
+                            api.post("/task", {
+                                title: title,
+                                description: desc,
+                                hourStart: time
+                            }).then((response) => {
+                                navigator.navigate("sucessaddtask")
+                            })
+                        }}
                     />
                 ) : null}
                 <Image

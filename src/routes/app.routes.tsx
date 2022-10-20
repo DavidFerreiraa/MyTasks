@@ -6,6 +6,8 @@ import { Signup } from "../screens/Signup";
 import { ErrorSignUp } from "../screens/Errors/ErrorSignUp";
 import { ErrorSignUp2 } from "../screens/Errors/ErrorSignUp2";
 import { SucessOnSignUp } from "../screens/Sucess/SucessOnSignUp";
+import { SucessAddTask } from "../screens/Sucess/SucessAddTask";
+
 import { ErrorWrongPassword } from "../screens/Errors/ErrorWrongPassword";
 import { AddTask } from "../screens/AddTask";
 
@@ -25,6 +27,7 @@ export default function AppRoutes() {
             <Screen name="sucessonsignup" component={SucessOnSignUp} />
             <Screen name="home" component={Home} />
             <Screen name="addtask" component={AddTask} />
+            <Screen name="sucessaddtask" component={SucessAddTask} />
         </Navigator>
     );
 }
