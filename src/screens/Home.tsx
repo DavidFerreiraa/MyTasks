@@ -4,6 +4,7 @@ import { FlatList, SafeAreaView, Text, View } from "react-native";
 import Finder from "../components/Finder";
 import { HeaderHome } from "../components/Headers/HeaderHome";
 import Loading from "../components/Loading";
+import Task from "../components/Task";
 import { TasksProps } from "../interfaces/interfaces";
 import api from "../services/api";
 
@@ -52,7 +53,7 @@ export function Home(props: any) {
         <SafeAreaView className="h-full flex-col">
             <HeaderHome title="MyTasks" />
             <Finder getValue={setFilter} />
-            <View>
+            <View className="px-4">
                 {filter === "" ? (
                     loaded ? (
                         tasks.length === 0 ? (
@@ -61,8 +62,9 @@ export function Home(props: any) {
                             <FlatList
                                 data={tasks}
                                 renderItem={({ item }) => (
-                                    <Text>{item.title}</Text>
+                                    <Task text={item.title} />
                                 )}
+                                className="w-full"
                             />
                         )
                     ) : (
