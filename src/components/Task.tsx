@@ -1,24 +1,28 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { TaskData, TasksProps } from "../interfaces/interfaces";
+import { useNavigation } from "@react-navigation/native";
 
-interface TaskProps {
-    text: string
-    delete: any
-    edit: any
-    details: any
-}
+export default function Task(props: TaskData) {
 
-export default function Task(props: TaskProps) {
+    const navigator = useNavigation()
+
+    function getDetails(data: TasksProps){
+        console.log(data)
+        navigator.navigate("details", {
+            data: {...data}
+        })
+    }
     return (
         <View className="flex-row justify-between my-1">
             <TouchableOpacity onPress={() => {
-                props.details()
+                getDetails(props.data)
             }}>
-                <Text>{props.text}</Text>
+                <Text>{props.data.title}</Text>
             </TouchableOpacity>
             <View className="flex-row gap-4">
                 <TouchableOpacity onPress={() => {
-                    props.delete()
+                    
                 }}>
                     <MaterialIcons
                         name="highlight-remove"
@@ -27,7 +31,7 @@ export default function Task(props: TaskProps) {
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    props.edit()
+                    
                 }}>
                     <MaterialCommunityIcons
                         name="circle-edit-outline"

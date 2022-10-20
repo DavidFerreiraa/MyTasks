@@ -1,3 +1,5 @@
+import { TasksProps } from "../interfaces/interfaces";
+
 export declare global {
     namespace ReactNavigation {
         interface RootParamList {
@@ -12,6 +14,9 @@ export declare global {
             errorwrongpassword: undefined;
             addtask: undefined;
             sucessaddtask: undefined;
+            details: {
+                data: TasksProps
+            }
         }
     }
 }

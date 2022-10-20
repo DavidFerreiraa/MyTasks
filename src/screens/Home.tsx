@@ -62,7 +62,7 @@ export function Home(props: any) {
                             <FlatList
                                 data={tasks}
                                 renderItem={({ item }) => (
-                                    <Task text={item.title} />
+                                    <Task data={item} />
                                 )}
                                 className="w-full"
                             />

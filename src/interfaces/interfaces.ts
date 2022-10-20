@@ -40,3 +40,7 @@ export interface TasksProps {
   description: string,
   hourStart: number,
 }
+
+export interface TaskData {
+    data: TasksProps
+}
