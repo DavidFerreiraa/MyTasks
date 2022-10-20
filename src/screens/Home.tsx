@@ -36,7 +36,7 @@ export function Home(props: any) {
     if (filter !== "") {
       let newFiltered: TasksProps[] = [];
       tasks.map((task) => {
-        if (task.title.toLowerCase().includes(filter.toLowerCase())){
+        if (task.title.toLowerCase().startsWith(filter.toLowerCase())){
           newFiltered.push(task);
         }
       });
