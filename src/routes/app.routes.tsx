@@ -11,6 +11,7 @@ import { SucessAddTask } from "../screens/Sucess/SucessAddTask";
 import { ErrorWrongPassword } from "../screens/Errors/ErrorWrongPassword";
 import { AddTask } from "../screens/AddTask";
 import { Details } from "../screens/Details";
+import { EditScreen } from "../screens/EditScreen";
 
 
 
@@ -27,6 +28,7 @@ export default function AppRoutes() {
             <Screen name="signup" component={Signup} />
             <Screen name="sucessonsignup" component={SucessOnSignUp} />
             <Screen name="home" component={Home} />
+            <Screen name="editionscreen" component={EditScreen} />
             <Screen name="details" component={Details} />
             <Screen name="addtask" component={AddTask} />
             <Screen name="sucessaddtask" component={SucessAddTask} />

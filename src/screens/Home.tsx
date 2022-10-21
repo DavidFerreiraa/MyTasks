@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 import Task from "../components/Task";
 import { TasksProps } from "../interfaces/interfaces";
 import api from "../services/api";
+import { useForm } from "react-hook-form";
 
 export function Home() {
 
@@ -41,6 +42,13 @@ export function Home() {
         .catch((err) => {
             getTasksFromAPI()
         });
+    }
+
+    const editTask = async (id: string) => {
+        console.log("Entrou")
+        navigator.navigate("editionscreen", {
+            id: id,
+        })
     }
 
     useEffect(() => {
@@ -79,6 +87,11 @@ export function Home() {
                                     <Task
                                         data={item}
                                         handleDelete={deleteTask}
+                                        handleEdit={() => {
+                                            navigator.navigate("editionscreen", {
+                                                id: item.id
+                                            });
+                                        }}
                                     />
                                 )}
                                 className="w-full"
@@ -91,7 +104,11 @@ export function Home() {
                     <FlatList
                         data={filtered}
                         renderItem={({ item }) => (
-                            <Task data={item} handleDelete={deleteTask(item.id)} />
+                            <Task
+                                data={item}
+                                handleDelete={deleteTask(item.id)}
+                                handleEdit={editTask(item.id)}
+                            />
                         )}
                         className="w-full"
                     />

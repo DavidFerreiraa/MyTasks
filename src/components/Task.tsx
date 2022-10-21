@@ -23,7 +23,7 @@ export default function Task(props: TaskData) {
             </TouchableOpacity>
             <View className="flex-row gap-4">
                 <TouchableOpacity onPress={() => {
-                     props.handleDelete(props.data.id)
+                    props.handleDelete(props.data.id)
                 }}>
                     <MaterialIcons
                         name="highlight-remove"
@@ -32,7 +32,7 @@ export default function Task(props: TaskData) {
                     />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    
+                    props.handleEdit(props.data.id)
                 }}>
                     <MaterialCommunityIcons
                         name="circle-edit-outline"

@@ -44,4 +44,5 @@ export interface TasksProps {
 export interface TaskData {
     data: TasksProps
     handleDelete: any
+    handleEdit: any
 }

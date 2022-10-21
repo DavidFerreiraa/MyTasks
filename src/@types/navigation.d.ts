@@ -14,7 +14,10 @@ export declare global {
             sucessaddtask: undefined;
             details: {
                 data: TasksProps
-            }
+            };
+            editionscreen: {
+                id: string
+            };
         }
     }
 }
