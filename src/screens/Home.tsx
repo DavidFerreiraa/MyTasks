@@ -7,7 +7,6 @@ import Loading from "../components/Loading";
 import Task from "../components/Task";
 import { TasksProps } from "../interfaces/interfaces";
 import api from "../services/api";
-import { useForm } from "react-hook-form";
 
 export function Home() {
 
