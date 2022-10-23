@@ -12,6 +12,7 @@ import { ErrorWrongPassword } from "../screens/Errors/ErrorWrongPassword";
 import { AddTask } from "../screens/AddTask";
 import { Details } from "../screens/Details";
 import { EditScreen } from "../screens/EditScreen";
+import { ErrorValidation } from "../screens/Errors/ErrorValidation";
 
 
 
@@ -23,6 +24,7 @@ export default function AppRoutes() {
             <Screen name="greetings" component={Greetings} />
             <Screen name="login" component={Login} />
             <Screen name="errorscreen" component={ErrorSignUp} />
+            <Screen name="errorvalidation" component={ErrorValidation} />
             <Screen name="errorscreenduplicate" component={ErrorSignUp2} />
             <Screen name="errorwrongpassword" component={ErrorWrongPassword} />
             <Screen name="signup" component={Signup} />

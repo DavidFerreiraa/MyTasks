@@ -8,8 +8,9 @@ export declare global {
             signup: undefined;
             errorscreen: undefined;
             errorscreenduplicate: undefined;
-            sucessonsignup: undefined;
             errorwrongpassword: undefined;
+            errorvalidation: undefined
+            sucessonsignup: undefined;
             addtask: undefined;
             sucessaddtask: undefined;
             details: {
