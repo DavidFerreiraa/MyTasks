@@ -44,7 +44,6 @@ export function Home() {
     }
 
     const editTask = async (id: string) => {
-        console.log("Entrou")
         navigator.navigate("editionscreen", {
             id: id,
         })

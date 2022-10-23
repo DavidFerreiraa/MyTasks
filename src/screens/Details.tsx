@@ -8,7 +8,6 @@ export function Details(props: any) {
 
     const navigator = useNavigation()
     const TasksData = props.route.params.data;
-    console.log(TasksData)
 
     const deleteTask = async (id: string) => {
         await api
@@ -19,7 +18,6 @@ export function Details(props: any) {
     };
 
     const editTask = async (id: string) => {
-        console.log("Entrou");
         navigator.navigate("editionscreen", {
             id: id,
         });

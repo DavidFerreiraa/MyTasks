@@ -8,7 +8,6 @@ export default function Task(props: TaskData) {
     const navigator = useNavigation()
 
     function getDetails(data: TasksProps){
-        console.log(data)
         navigator.navigate("details", {
             data: {...data}
         })
