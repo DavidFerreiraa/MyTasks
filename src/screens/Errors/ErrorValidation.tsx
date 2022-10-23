@@ -10,7 +10,7 @@ export function ErrorValidation() {
             />
             <TitleAndDesc
                 Title="Ops! An error ocurred"
-                Description="Check if you filled all the fields"
+                Description="Check if you filled all the fields or if you put a valid email"
                 textColor="text-white"
             />
         </SafeAreaView>

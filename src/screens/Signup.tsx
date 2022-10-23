@@ -9,6 +9,7 @@ import api from "../services/api";
 
 export function Signup() {
     
+    const regexemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const [textFromEmail, setTextFromEmail] = useState<string>("");
     const [textFromPassword, setTextFromPassword] = useState<string>("");
     const [username, setUsername] = useState<string>("");
@@ -41,23 +42,31 @@ export function Signup() {
                     className="bg-blue-700 mt-12 rounded p-4 items-center justify-center text-white font-extrabold w-full "
                     customfont={false}
                     onPress={() => {
-                        if (username || textFromEmail || textFromPassword || otherTextFromPassword === "") {
-                            navigator.navigate("errorvalidation")
-                        }
-                        else if (textFromPassword === otherTextFromPassword) {
-                            api.post(`/users`, {
-                                name: username,
-                                email: textFromEmail,
-                                password: textFromPassword,
-                            })
-                                .then(() => {
-                                    navigator.navigate("sucessonsignup");
+                        if (
+                            username &&
+                            textFromEmail &&
+                            textFromPassword &&
+                            otherTextFromPassword != "" &&
+                            textFromEmail.match(regexemail)
+                        ) {
+
+                            if (textFromPassword === otherTextFromPassword) {
+                                api.post(`/users`, {
+                                    name: username,
+                                    email: textFromEmail,
+                                    password: textFromPassword,
                                 })
-                                .catch((err: Error) => {
-                                    navigator.navigate("errorscreenduplicate");
-                                });
-                        } else if (textFromPassword !== otherTextFromPassword) {
-                            navigator.navigate("errorscreen");
+                                    .then(() => {
+                                        navigator.navigate("sucessonsignup");
+                                    })
+                                    .catch((err: Error) => {
+                                        navigator.navigate("errorscreenduplicate");
+                                    });
+                            } else if (textFromPassword !== otherTextFromPassword) {
+                                navigator.navigate("errorscreen");
+                            }
+                        } else {
+                            navigator.navigate("errorvalidation")
                         }
 
                         return <Loading />;
