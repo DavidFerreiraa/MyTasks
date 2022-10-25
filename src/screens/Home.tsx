@@ -33,14 +33,25 @@ export function Home() {
             });
     }
 
+    const getFiltered = () => {
+        let newFiltered: TasksProps[] = [];
+        tasks.map((task) => {
+            if (task.title.toLowerCase().startsWith(filter.toLowerCase())) {
+                newFiltered.push(task);
+            }
+        });
+        setFiltered(newFiltered);
+    }
     const deleteTask = async (id: string) => {
         await api.delete(`/task/${id}`)
         .then((response) => 
             response && getTasksFromAPI()
         )
         .catch((err) => {
-            getTasksFromAPI()
+            console.log(err)
         });
+        getTasksFromAPI()
+        getFiltered()
     }
 
     const editTask = async (id: string) => {
@@ -55,13 +66,7 @@ export function Home() {
 
     useEffect(() => {
     if (filter != "") {
-      let newFiltered: TasksProps[] = [];
-      tasks.map((task) => {
-        if (task.title.toLowerCase().startsWith(filter.toLowerCase())){
-          newFiltered.push(task);
-        }
-      });
-      setFiltered(newFiltered);
+      getFiltered()
     } else {
       if (tasks.length > 0){
         setFiltered(tasks);
@@ -85,11 +90,7 @@ export function Home() {
                                     <Task
                                         data={item}
                                         handleDelete={deleteTask}
-                                        handleEdit={() => {
-                                            navigator.navigate("editionscreen", {
-                                                id: item.id
-                                            });
-                                        }}
+                                        handleEdit={editTask}
                                     />
                                 )}
                                 className="w-full"
@@ -104,8 +105,8 @@ export function Home() {
                         renderItem={({ item }) => (
                             <Task
                                 data={item}
-                                handleDelete={deleteTask(item.id)}
-                                handleEdit={editTask(item.id)}
+                                handleDelete={deleteTask}
+                                handleEdit={editTask}
                             />
                         )}
                         className="w-full"
